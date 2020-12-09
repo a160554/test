@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/About';
+import Pricing from './components/Pricing';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  render() {
+    return (
+    <Router>
+        <div>
+          <br>
+          </br>
+          <img class="mobile-logo preload-me" src="https://chativo.io/giticim/2020/02/logo-vertical.png" srcset="https://chativo.io/giticim/2020/02/logo-vertical.png 257w, https://chativo.io/giticim/2020/02/logo-vertical.png 257w" width="257" height="79" sizes="257px" alt="Chativo" data-pagespeed-url-hash="930198792" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></img>
+          <br>
+          </br>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <ul className="navbar-nav mr-auto">
+            <li><Link to={'/'} className="nav-link"> Home </Link></li>
+            <li><Link to={'/pricing'} className="nav-link">Pricing</Link></li>
+            <li><Link to={'/about'} className="nav-link">About</Link></li>
+          </ul>
+          </nav>
+          <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/pricing' component={Pricing} />
+              <Route path='/about' component={About} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
