@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import {PageView, initGA} from './Tracking';
 
 class About extends Component {
+
+  componentDidMount() {
+    initGA("UA-184753310-1");
+    PageView();
+  }
   
   render() {
     return (

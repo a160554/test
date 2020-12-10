@@ -3,23 +3,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Pricing from './components/Pricing';
-import { createBrowserHistory } from 'history';
-import ReactGA from 'react-ga';
-
-const history = createBrowserHistory();
-
-ReactGA.initialize('UA-184753310-1');
-
-// Initialize google analytics page view tracking
-history.listen(location => {
-  ReactGA.set({ page: location.pathname }); // Update the user's current page
-  ReactGA.pageview(location.pathname); // Record a pageview for the given page
-});
+import { Event } from "./components/Tracking";
 
 class App extends Component {
+
   render() {
     return (
-    <Router history={history}>
+    <Router >
         <div>
           <br>
           </br>
@@ -28,9 +18,9 @@ class App extends Component {
           </br>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <ul className="navbar-nav mr-auto">
-            <li><Link to={'/'} className="nav-link"> Home </Link></li>
-            <li><Link to={'/pricing'} className="nav-link">Pricing</Link></li>
-            <li><Link to={'/about'} className="nav-link">About</Link></li>
+            <li><Link to={'/'} className="nav-link" onClick={Event("Home", "Visit Home", "HOME_PAGE")}> Home </Link></li>
+            <li><Link to={'/pricing'} className="nav-link" onClick={Event("Pricing", "Visit Pricing", "PRICING_PAGE")}>Pricing</Link></li>
+            <li><Link to={'/about'} className="nav-link" onClick={Event("About", "Visit About", "ABOUT_PAGE")}>About</Link></li>
           </ul>
           </nav>
           <Switch>
@@ -42,6 +32,7 @@ class App extends Component {
       </Router>
     );
   }
+  
 }
 
 export default App;

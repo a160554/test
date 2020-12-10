@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import logo from './plan.jpg';
+import {PageView, initGA} from './Tracking';
 
 class Pricing extends Component {
-  
+  componentDidMount() {
+    initGA("UA-184753310-1");
+    PageView();
+  }
+
   render() {
     return (
         <div>
