@@ -3,12 +3,23 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Pricing from './components/Pricing';
+import { createBrowserHistory } from 'history';
+import ReactGA from 'react-ga';
 
+const history = createBrowserHistory();
+
+ReactGA.initialize('UA-184753310-1');
+
+// Initialize google analytics page view tracking
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 class App extends Component {
   render() {
     return (
-    <Router>
+    <Router history={history}>
         <div>
           <br>
           </br>

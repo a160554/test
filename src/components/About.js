@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import ReactGA from 'react-ga';
-
-ReactGA.initialize('UA-184753310-1');
-ReactGA.pageview('/about', ['about']);
 
 class About extends Component {
+  
   render() {
     return (
         <div>
