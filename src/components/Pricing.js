@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import logo from './plan.jpg';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-184753310-1');
+ReactGA.pageview('/pricing', ['pricing']);
 
 class Pricing extends Component {
   

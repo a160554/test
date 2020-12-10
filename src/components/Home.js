@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-184753310-1');
+ReactGA.pageview('/', ['home']);
 
 class Home extends Component {
   render() {
